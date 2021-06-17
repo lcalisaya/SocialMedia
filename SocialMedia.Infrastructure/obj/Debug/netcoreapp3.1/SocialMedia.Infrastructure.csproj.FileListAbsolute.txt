@@ -1,0 +1,12 @@
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Infrastructure\bin\Debug\netcoreapp3.1\SocialMedia.Infrastructure.deps.json
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Infrastructure\bin\Debug\netcoreapp3.1\SocialMedia.Infrastructure.dll
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Infrastructure\bin\Debug\netcoreapp3.1\SocialMedia.Infrastructure.pdb
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Infrastructure\bin\Debug\netcoreapp3.1\SocialMedia.Core.dll
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Infrastructure\bin\Debug\netcoreapp3.1\SocialMedia.Core.pdb
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.csprojAssemblyReference.cache
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.AssemblyInfo.cs
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.csproj.CopyComplete
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.dll
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\netcoreapp3.1\SocialMedia.Infrastructure.pdb
