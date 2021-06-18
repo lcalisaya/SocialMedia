@@ -3,11 +3,12 @@ using SocialMedia.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace SocialMedia.Infrastructure.Repositories
 {
-    public class PostRepository : IPostRepository
+    public class PostMongoRepository : IPostRepository
     {
         public async Task<IEnumerable<Post>> GetPosts()
         {
@@ -15,7 +16,7 @@ namespace SocialMedia.Infrastructure.Repositories
             {
                 PostId = x,
                 UserId = x * 2,
-                Description = $"Descripción del post Nº {x}",
+                Description = $"Descripción del post Nº {x} del repositorio Mongo",
                 Date = DateTime.Now,
                 Image = $"http://imageexample.com/{x}"
             });
