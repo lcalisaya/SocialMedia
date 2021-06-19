@@ -26,5 +26,15 @@ namespace SocialMedia.Api.Controllers
             return Ok(posts);
         }
 
-    }
+        [HttpGet("{postId}")]
+        public async Task<IActionResult> GetPost(int postId)
+        {
+            //Bajo Acoplamiento y Alta cohesión: que las clases no dependan entre sí
+            //Solución:Inyección de dependencias, trabajar con abstracciones interfaces
+            var posts = await _postRepository.GetPost(postId);
+            //Retorna un status 200
+            return Ok(posts);
+        }
+
+  }
 }
