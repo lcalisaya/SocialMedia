@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SocialMedia.Infrastructure.Data.Configurations
 {
-    class UserConfiguration : IEntityTypeConfiguration<User>
+    public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
@@ -29,7 +29,7 @@ namespace SocialMedia.Infrastructure.Data.Configurations
                 .IsUnicode(false);
 
             builder.Property(e => e.DateOfBirth).HasColumnType("date")
-               .HasColumnName("FechaNacimiento");
+                .HasColumnName("FechaNacimiento");
 
             builder.Property(e => e.FirstName)
                 .HasColumnName("Nombre")

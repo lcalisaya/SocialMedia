@@ -4,7 +4,7 @@ using SocialMedia.Core.Entities;
 
 namespace SocialMedia.Infrastructure.Data.Configurations
 {
-  public class PostConfiguration : IEntityTypeConfiguration<Post>
+    public class PostConfiguration : IEntityTypeConfiguration<Post>
     {
         public void Configure(EntityTypeBuilder<Post> builder)
         {
@@ -25,7 +25,7 @@ namespace SocialMedia.Infrastructure.Data.Configurations
                 .IsUnicode(false);
 
             builder.Property(e => e.Date).HasColumnType("datetime")
-              .HasColumnName("Fecha");
+                .HasColumnName("Fecha");
 
             builder.Property(e => e.Image)
                 .HasColumnName("Imagen")

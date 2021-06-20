@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Infrastructure.Repositories;
 using System.Threading.Tasks;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 namespace SocialMedia.Api.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController] // Este decorador activa las validaciones a los modelos
     public class PostController : ControllerBase
     {
         private readonly IPostRepository _postRepository;
@@ -29,11 +30,15 @@ namespace SocialMedia.Api.Controllers
         [HttpGet("{postId}")]
         public async Task<IActionResult> GetPost(int postId)
         {
-            //Bajo Acoplamiento y Alta cohesión: que las clases no dependan entre sí
-            //Solución:Inyección de dependencias, trabajar con abstracciones interfaces
             var posts = await _postRepository.GetPost(postId);
-            //Retorna un status 200
             return Ok(posts);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddPost(Post jsonPost)
+        {
+            await _postRepository.AddPost(jsonPost);
+            return Ok(jsonPost);
         }
 
   }
