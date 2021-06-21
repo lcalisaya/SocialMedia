@@ -34,6 +34,9 @@ namespace SocialMedia.Api.Controllers
             return Ok(posts);
         }
 
+        // En este método se espera un objeto entidad que es el que se comunica con la BBDD.
+        // Esto puede generar "Overposting", es decir que el usuario puede enviar más datos/objetos de los que son necesarios.
+        // Ejemplo, se podría mandar a guardar un post + un comentario + un usuario 
         [HttpPost]
         public async Task<IActionResult> AddPost(Post jsonPost)
         {

@@ -29,6 +29,11 @@ namespace SocialMedia.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Para evitar la referencia circular que se da cuando se quiere serializar un post y se está referenciando a un user
+            services.AddControllers().AddNewtonsoftJson(options => { 
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });            
+
             services.AddControllers();
 
             //Para indicar que el contexto se basa en la connection string SocialMedia
