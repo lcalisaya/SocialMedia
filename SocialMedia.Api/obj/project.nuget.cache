@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Nqu8HNbBXWUDP4GyzqQASui/CeWamCNe781/2iTI0+oGEvBcz6OJwxj6bL40pc4tHeROefsDXTMks4zzfNxCsQ==",
+  "dgSpecHash": "lXlCblW2pSXDgsQaaJ/wSCnRAPppSdLQeSB/rXoy8Cys5QVfKmBa5hov6bhFj1gR5vrn3oGktsUpXYc83zhafA==",
   "success": true,
   "projectFilePath": "C:\\Users\\timea\\source\\repos\\SocialMedia\\SocialMedia.Api\\SocialMedia.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\timea\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\timea\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.16\\microsoft.aspnetcore.jsonpatch.3.1.16.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.16\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.16.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
@@ -68,7 +70,7 @@
     "C:\\Users\\timea\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\timea\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
+    "C:\\Users\\timea\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
