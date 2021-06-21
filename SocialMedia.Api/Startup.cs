@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +31,9 @@ namespace SocialMedia.Api
             //Para evitar la referencia circular que se da cuando se quiere serializar un post y se está referenciando a un user
             services.AddControllers().AddNewtonsoftJson(options => { 
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            });            
+            }).ConfigureApiBehaviorOptions(options => { 
+                //options.SuppressModelStateInvalidFilter = true;
+            });       
 
             services.AddControllers();
 
@@ -42,10 +45,14 @@ namespace SocialMedia.Api
             //Para resolver dependencias
             //Cada vez que se llame a esta abstracción, se creará una instancia de esta clase
             services.AddTransient<IPostRepository, PostRepository>();
-
+            
             //Se agrega un filtro de manera global
-            services.AddMvc(options => { 
+            services.AddMvc(options =>
+            {
                 options.Filters.Add<ValidationFilter>();
+            }).AddFluentValidation(options =>
+            {
+                options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
             });
 
         }
