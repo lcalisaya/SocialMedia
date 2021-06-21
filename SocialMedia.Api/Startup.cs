@@ -6,12 +6,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Infrastructure.Data;
+using SocialMedia.Infrastructure.Filters;
 using SocialMedia.Infrastructure.Repositories;
 using System;
 
 namespace SocialMedia.Api
 {
-  public class Startup
+    public class Startup
     {
         public Startup(IConfiguration configuration)
         {
@@ -41,6 +42,11 @@ namespace SocialMedia.Api
             //Para resolver dependencias
             //Cada vez que se llame a esta abstracción, se creará una instancia de esta clase
             services.AddTransient<IPostRepository, PostRepository>();
+
+            //Se agrega un filtro de manera global
+            services.AddMvc(options => { 
+                options.Filters.Add<ValidationFilter>();
+            });
 
         }
 

@@ -68,3 +68,6 @@ C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.MvcApplicationPartsAssemblyInfo.cs

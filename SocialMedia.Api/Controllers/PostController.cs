@@ -3,15 +3,16 @@ using Microsoft.AspNetCore.Mvc;
 using SocialMedia.Core.DTOs;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
-using SocialMedia.Infrastructure.Repositories;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SocialMedia.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController] // Este decorador activa las validaciones a los modelos
+
+    //La clase ControllerBase existe para trabajar con APIs
+    //La clase Controller además de hacer lo mismo que ControllerBase, agrega funciones para trabajar en MVC
     public class PostController : ControllerBase
     {
         private readonly IPostRepository _postRepository;
