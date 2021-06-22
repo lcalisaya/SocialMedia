@@ -10,7 +10,6 @@ C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\SocialMedia.Infrastructure.dll
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\SocialMedia.Core.pdb
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\SocialMedia.Infrastructure.pdb
-C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.csprojAssemblyReference.cache
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.AssemblyInfoInputs.cache
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.AssemblyInfo.cs
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.csproj.CoreCompileInputs.cache
@@ -74,3 +73,4 @@ C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\FluentValidation.dll
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.Api\obj\Debug\netcoreapp3.1\SocialMedia.Api.csproj.AssemblyReference.cache

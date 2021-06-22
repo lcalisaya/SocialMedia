@@ -86,7 +86,6 @@ C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\bin\Debug\netcoreap
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.csprojAssemblyReference.cache
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.AssemblyInfoInputs.cache
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.AssemblyInfo.cs
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.csproj.CoreCompileInputs.cache
@@ -94,3 +93,4 @@ C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreap
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.dll
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.pdb
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.genruntimeconfig.cache
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.csproj.AssemblyReference.cache
