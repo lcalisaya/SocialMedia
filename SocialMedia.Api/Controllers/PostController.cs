@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using SocialMedia.Api.Responses;
 using SocialMedia.Core.DTOs;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
@@ -34,8 +35,10 @@ namespace SocialMedia.Api.Controllers
             //Se convierte la respuesta en objetos DTO para que el usuario no tenga contacto con nuestra entidad de dominio
             var postsDto = _mapper.Map<IEnumerable<PostDto>>(posts);
 
+            var response = new ApiResponse<IEnumerable<PostDto>>(postsDto);
+
             //Retorna un status 200
-            return Ok(postsDto);
+            return Ok(response);
         }
 
         [HttpGet("{postId}")]
@@ -43,7 +46,8 @@ namespace SocialMedia.Api.Controllers
         {
             var post = await _postRepository.GetPost(postId);
             var postDto = _mapper.Map<PostDto>(post);
-            return Ok(postDto);
+            var response = new ApiResponse<PostDto>(postDto);
+            return Ok(response);
         }
 
         // En este método se espera un objeto entidad que es el que se comunica con la BBDD.
@@ -54,7 +58,10 @@ namespace SocialMedia.Api.Controllers
         {
             var post = _mapper.Map<Post>(jsonPost);
             await _postRepository.AddPost(post);
-            return Ok(post);
+            
+            var postDto = _mapper.Map<PostDto>(post);
+            var response = new ApiResponse<PostDto>(postDto);
+            return Ok(response);
         }
 
         [HttpPut]
@@ -62,15 +69,17 @@ namespace SocialMedia.Api.Controllers
         {
             var post = _mapper.Map<Post>(jsonPost);
             post.PostId = idPost;
-            await _postRepository.UpdatePost(post);
-            return Ok(post);
+            var result = await _postRepository.UpdatePost(post);
+            var response = new ApiResponse<bool>(result);
+            return Ok(response);
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeletePost(int idPost)
         {
             var result = await _postRepository.DeletePost(idPost);
-            return Ok(result);
+            var response = new ApiResponse<bool>(result);
+            return Ok(response);
         }
 
     }
