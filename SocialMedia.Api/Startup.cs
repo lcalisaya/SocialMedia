@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SocialMedia.Core.Interfaces;
+using SocialMedia.Core.Services;
 using SocialMedia.Infrastructure.Data;
 using SocialMedia.Infrastructure.Filters;
 using SocialMedia.Infrastructure.Repositories;
@@ -42,8 +43,9 @@ namespace SocialMedia.Api
                 options.UseSqlServer(Configuration.GetConnectionString("SocialMedia"))
             );
 
-            //Para resolver dependencias
+            //Para resolver/registrar las dependencias
             //Cada vez que se llame a esta abstracción, se creará una instancia de esta clase
+            services.AddTransient<IPostService, PostService>();
             services.AddTransient<IPostRepository, PostRepository>();
             
             //Se agrega un filtro de manera global

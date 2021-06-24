@@ -1,0 +1,44 @@
+﻿using SocialMedia.Core.Entities;
+using SocialMedia.Core.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SocialMedia.Core.Services
+{
+  //Son clases en las que se van a reflejar las reglas de negocio/validaciones
+    public class PostService : IPostService
+    {
+        private readonly IPostRepository _postRepository;
+        public PostService(IPostRepository postRepository)
+        {
+            _postRepository = postRepository;
+        }
+
+        public async Task AddPost(Post jsonPost)
+        {
+            await _postRepository.AddPost(jsonPost);
+        }
+
+        public async Task<bool> DeletePost(int postId)
+        {
+            return await _postRepository.DeletePost(postId);
+        }
+
+        public async Task<Post> GetPost(int postId)
+        {
+            return await _postRepository.GetPost(postId);
+        }
+
+        public async Task<IEnumerable<Post>> GetPosts()
+        {
+            return await _postRepository.GetPosts();
+        }
+
+        public async Task<bool> UpdatePost(Post post)
+        {
+            return await _postRepository.UpdatePost(post);
+        }
+    }
+}

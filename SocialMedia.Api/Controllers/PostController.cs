@@ -16,12 +16,12 @@ namespace SocialMedia.Api.Controllers
     //La clase Controller además de hacer lo mismo que ControllerBase, agrega funciones para trabajar en MVC
     public class PostController : ControllerBase
     {
-        private readonly IPostRepository _postRepository;
+        private readonly IPostService _postService;
         private readonly IMapper _mapper;
         //Inyectar vía constructor: Se le pasan los objetos que de este dependan
-        public PostController(IPostRepository postRepository, IMapper mapper)
+        public PostController(IPostService postService, IMapper mapper)
         {
-            _postRepository = postRepository;
+            _postService = postService;
             _mapper = mapper;
         }
 
@@ -30,7 +30,7 @@ namespace SocialMedia.Api.Controllers
         {
             //Bajo Acoplamiento y Alta cohesión: que las clases no dependan entre sí
             //Solución:Inyección de dependencias, trabajar con abstracciones interfaces
-            var posts = await _postRepository.GetPosts();
+            var posts = await _postService.GetPosts();
             
             //Se convierte la respuesta en objetos DTO para que el usuario no tenga contacto con nuestra entidad de dominio
             var postsDto = _mapper.Map<IEnumerable<PostDto>>(posts);
@@ -44,7 +44,7 @@ namespace SocialMedia.Api.Controllers
         [HttpGet("{postId}")]
         public async Task<IActionResult> GetPost(int postId)
         {
-            var post = await _postRepository.GetPost(postId);
+            var post = await _postService.GetPost(postId);
             var postDto = _mapper.Map<PostDto>(post);
             var response = new ApiResponse<PostDto>(postDto);
             return Ok(response);
@@ -57,7 +57,7 @@ namespace SocialMedia.Api.Controllers
         public async Task<IActionResult> AddPost(PostDto jsonPost)
         {
             var post = _mapper.Map<Post>(jsonPost);
-            await _postRepository.AddPost(post);
+            await _postService.AddPost(post);
             
             var postDto = _mapper.Map<PostDto>(post);
             var response = new ApiResponse<PostDto>(postDto);
@@ -69,7 +69,7 @@ namespace SocialMedia.Api.Controllers
         {
             var post = _mapper.Map<Post>(jsonPost);
             post.PostId = idPost;
-            var result = await _postRepository.UpdatePost(post);
+            var result = await _postService.UpdatePost(post);
             var response = new ApiResponse<bool>(result);
             return Ok(response);
         }
@@ -77,7 +77,7 @@ namespace SocialMedia.Api.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeletePost(int idPost)
         {
-            var result = await _postRepository.DeletePost(idPost);
+            var result = await _postService.DeletePost(idPost);
             var response = new ApiResponse<bool>(result);
             return Ok(response);
         }
