@@ -7,17 +7,24 @@ using System.Threading.Tasks;
 
 namespace SocialMedia.Core.Services
 {
-  //Son clases en las que se van a reflejar las reglas de negocio/validaciones
+    //Son clases en las que se van a reflejar las reglas de negocio/validaciones
     public class PostService : IPostService
     {
         private readonly IPostRepository _postRepository;
-        public PostService(IPostRepository postRepository)
+        private readonly IUserRepository _userRepository;
+        public PostService(IPostRepository postRepository, IUserRepository userRepository)
         {
             _postRepository = postRepository;
+            _userRepository = userRepository;
         }
 
         public async Task AddPost(Post jsonPost)
         {
+            var user = await _userRepository.GetUser(jsonPost.UserId);
+            if (user == null)
+            {   
+                throw new Exception("User doesn't exist");
+            }
             await _postRepository.AddPost(jsonPost);
         }
 

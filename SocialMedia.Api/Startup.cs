@@ -47,6 +47,7 @@ namespace SocialMedia.Api
             //Cada vez que se llame a esta abstracción, se creará una instancia de esta clase
             services.AddTransient<IPostService, PostService>();
             services.AddTransient<IPostRepository, PostRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
             
             //Se agrega un filtro de manera global
             services.AddMvc(options =>
