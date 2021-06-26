@@ -6,51 +6,53 @@ using System.Threading.Tasks;
 
 namespace SocialMedia.Core.Services
 {
-  //Son clases en las que se van a reflejar las reglas de negocio/validaciones
+    //Son clases en las que se van a reflejar las reglas de negocio/validaciones
     public class PostService : IPostService
     {
-        private readonly IPostRepository _postRepository;
-        private readonly IUserRepository _userRepository;
-        public PostService(IPostRepository postRepository, IUserRepository userRepository)
+        private readonly IRepository<Post> _postRepository;
+        private readonly IRepository<User> _userRepository;
+        public PostService(IRepository<Post> postRepository, IRepository<User> userRepository)
         {
             _postRepository = postRepository;
             _userRepository = userRepository;
         }
 
-        public async Task AddPost(Post jsonPost)
+        public async Task<IEnumerable<Post>> GetPosts()
         {
-            var user = await _userRepository.GetUser(jsonPost.UserId);
-            if (user == null)
-            {   
-                throw new Exception("User doesn't exist");
-            }
-
-            if (jsonPost.Description.Contains("Sexo"))
-            {   
-                throw new Exception("Content not allowed");
-            }
-            
-            await _postRepository.AddPost(jsonPost);
-        }
-
-        public async Task<bool> DeletePost(int postId)
-        {
-            return await _postRepository.DeletePost(postId);
+            return await _postRepository.GetAll();
         }
 
         public async Task<Post> GetPost(int postId)
         {
-            return await _postRepository.GetPost(postId);
+            return await _postRepository.GetById(postId);
         }
 
-        public async Task<IEnumerable<Post>> GetPosts()
+        public async Task AddPost(Post jsonPost)
         {
-            return await _postRepository.GetPosts();
+            var user = await _userRepository.GetById(jsonPost.UserId);
+            if (user == null)
+            {
+              throw new Exception("User doesn't exist");
+            }
+
+            if (jsonPost.Description.Contains("Sexo"))
+            {
+              throw new Exception("Content not allowed");
+            }
+
+            await _postRepository.Add(jsonPost);
         }
 
         public async Task<bool> UpdatePost(Post post)
         {
-            return await _postRepository.UpdatePost(post);
+            await _postRepository.Update(post);
+            return true;
+        }
+
+        public async Task<bool> DeletePost(int postId)
+        {
+            await _postRepository.Delete(postId);
+            return true;
         }
     }
 }

@@ -48,6 +48,9 @@ namespace SocialMedia.Api
             services.AddTransient<IPostService, PostService>();
             services.AddTransient<IPostRepository, PostRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+
+            //De tipo Scope, cambia el ciclo de vida
+            services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             
             //Se agrega un filtro de manera global
             services.AddMvc(options =>
