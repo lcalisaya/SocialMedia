@@ -2,12 +2,11 @@
 using SocialMedia.Core.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SocialMedia.Core.Services
 {
-    //Son clases en las que se van a reflejar las reglas de negocio/validaciones
+  //Son clases en las que se van a reflejar las reglas de negocio/validaciones
     public class PostService : IPostService
     {
         private readonly IPostRepository _postRepository;
@@ -25,6 +24,12 @@ namespace SocialMedia.Core.Services
             {   
                 throw new Exception("User doesn't exist");
             }
+
+            if (jsonPost.Description.Contains("Sexo"))
+            {   
+                throw new Exception("Content not allowed");
+            }
+            
             await _postRepository.AddPost(jsonPost);
         }
 
