@@ -46,8 +46,6 @@ namespace SocialMedia.Api
             //Para resolver/registrar las dependencias
             //Cada vez que se llame a esta abstracción, se creará una instancia de esta clase
             services.AddTransient<IPostService, PostService>();
-            services.AddTransient<IPostRepository, PostRepository>();
-            services.AddTransient<IUserRepository, UserRepository>();
 
             //De tipo Scope, cambia el ciclo de vida
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
