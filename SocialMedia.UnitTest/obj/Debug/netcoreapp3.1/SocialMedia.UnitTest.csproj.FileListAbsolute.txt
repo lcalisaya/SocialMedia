@@ -93,4 +93,3 @@ C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreap
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.dll
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.pdb
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.genruntimeconfig.cache
-C:\Users\timea\source\repos\SocialMedia\SocialMedia.UnitTest\obj\Debug\netcoreapp3.1\SocialMedia.UnitTest.csproj.AssemblyReference.cache
