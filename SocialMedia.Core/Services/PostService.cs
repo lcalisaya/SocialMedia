@@ -9,27 +9,25 @@ namespace SocialMedia.Core.Services
     //Son clases en las que se van a reflejar las reglas de negocio/validaciones
     public class PostService : IPostService
     {
-        private readonly IRepository<Post> _postRepository;
-        private readonly IRepository<User> _userRepository;
-        public PostService(IRepository<Post> postRepository, IRepository<User> userRepository)
+        private readonly IUnitOfWork _unitOfWork;
+        public PostService(IUnitOfWork unitOfWork)
         {
-            _postRepository = postRepository;
-            _userRepository = userRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<IEnumerable<Post>> GetPosts()
         {
-            return await _postRepository.GetAll();
+            return await _unitOfWork.PostRepository.GetAll();
         }
 
         public async Task<Post> GetPost(int postId)
         {
-            return await _postRepository.GetById(postId);
+            return await _unitOfWork.PostRepository.GetById(postId);
         }
 
         public async Task AddPost(Post jsonPost)
         {
-            var user = await _userRepository.GetById(jsonPost.UserId);
+            var user = await _unitOfWork.UserRepository.GetById(jsonPost.UserId);
             if (user == null)
             {
               throw new Exception("User doesn't exist");
@@ -40,18 +38,18 @@ namespace SocialMedia.Core.Services
               throw new Exception("Content not allowed");
             }
 
-            await _postRepository.Add(jsonPost);
+            await _unitOfWork.PostRepository.Add(jsonPost);
         }
 
         public async Task<bool> UpdatePost(Post post)
         {
-            await _postRepository.Update(post);
+            await _unitOfWork.PostRepository.Update(post);
             return true;
         }
 
         public async Task<bool> DeletePost(int postId)
         {
-            await _postRepository.Delete(postId);
+            await _unitOfWork.PostRepository.Delete(postId);
             return true;
         }
     }
