@@ -30,13 +30,14 @@ namespace SocialMedia.Api
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             //Para evitar la referencia circular que se da cuando se quiere serializar un post y se está referenciando a un user
-            services.AddControllers().AddNewtonsoftJson(options => { 
+            //Para utilizar un filtro global de excepciones
+            services.AddControllers(options => { 
+                options.Filters.Add<GlobalExceptionFilter>();
+            }).AddNewtonsoftJson(options => { 
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             }).ConfigureApiBehaviorOptions(options => { 
                 //options.SuppressModelStateInvalidFilter = true;
             });       
-
-            services.AddControllers();
 
             //Para indicar que el contexto se basa en la connection string SocialMedia
             services.AddDbContext<SocialMediaContext>(options =>

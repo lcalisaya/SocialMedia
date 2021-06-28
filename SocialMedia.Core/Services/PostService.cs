@@ -1,4 +1,5 @@
 ﻿using SocialMedia.Core.Entities;
+using SocialMedia.Core.Exceptions;
 using SocialMedia.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -31,12 +32,12 @@ namespace SocialMedia.Core.Services
             var user = await _unitOfWork.UserRepository.GetById(jsonPost.UserId);
             if (user == null)
             {
-                throw new Exception("User doesn't exist");
+                throw new BusinessException("User doesn't exist");
             }
 
             if (jsonPost.Description.Contains("Sexo"))
             {
-                throw new Exception("Content not allowed");
+                throw new BusinessException("Content not allowed");
             }
             
             var userPosts = await _unitOfWork.PostRepository.GetPostsByUser(jsonPost.UserId);
@@ -45,7 +46,7 @@ namespace SocialMedia.Core.Services
                 var lastPost = userPosts.OrderByDescending(x => x.Date).FirstOrDefault();
                 if ((DateTime.Now - lastPost.Date).TotalDays < 7)
                 { 
-                    throw new Exception("You are not able to publish the post");
+                    throw new BusinessException("You are not able to publish the post");
                 }
             }
 
