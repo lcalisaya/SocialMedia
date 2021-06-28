@@ -5,12 +5,8 @@ using System.Threading.Tasks;
 namespace SocialMedia.Core.Interfaces
 {
     //Contrato, solo se define los métodos
-    public interface IPostRepository
+    public interface IPostRepository : IRepository<Post>
     {
-        Task<IEnumerable<Post>> GetPosts();
-        Task<Post> GetPost(int postId);
-        Task AddPost(Post jsonPost);
-        Task<bool> UpdatePost(Post post);
-        Task<bool> DeletePost(int postId);
+        Task<IEnumerable<Post>> GetPostsByUser(int userId);
     }   
 }

@@ -93,3 +93,4 @@ C:\Users\timea\source\repos\SocialMedia\SocialMedia.IntegrationTest\obj\Debug\ne
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.IntegrationTest\obj\Debug\netcoreapp3.1\SocialMedia.IntegrationTest.dll
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.IntegrationTest\obj\Debug\netcoreapp3.1\SocialMedia.IntegrationTest.pdb
 C:\Users\timea\source\repos\SocialMedia\SocialMedia.IntegrationTest\obj\Debug\netcoreapp3.1\SocialMedia.IntegrationTest.genruntimeconfig.cache
+C:\Users\timea\source\repos\SocialMedia\SocialMedia.IntegrationTest\obj\Debug\netcoreapp3.1\SocialMedia.IntegrationTest.csproj.AssemblyReference.cache

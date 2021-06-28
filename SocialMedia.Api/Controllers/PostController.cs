@@ -26,11 +26,11 @@ namespace SocialMedia.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPosts() 
+        public IActionResult GetPosts() 
         {
             //Bajo Acoplamiento y Alta cohesión: que las clases no dependan entre sí
             //Solución:Inyección de dependencias, trabajar con abstracciones interfaces
-            var posts = await _postService.GetPosts();
+            var posts = _postService.GetPosts();
             
             //Se convierte la respuesta en objetos DTO para que el usuario no tenga contacto con nuestra entidad de dominio
             var postsDto = _mapper.Map<IEnumerable<PostDto>>(posts);
