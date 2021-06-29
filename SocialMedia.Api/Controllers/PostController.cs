@@ -29,11 +29,11 @@ namespace SocialMedia.Api.Controllers
 
         [HttpGet]
         //Parámetros que se pasan por query string, en forma individual o en un objeto
-        public IActionResult GetPosts(PostQueryFilter filters) 
+        public IActionResult GetPosts([FromQuery]PostQueryFilter filters) 
         {
             //Bajo Acoplamiento y Alta cohesión: que las clases no dependan entre sí
             //Solución:Inyección de dependencias, trabajar con abstracciones interfaces
-            var posts = _postService.GetPosts();
+            var posts = _postService.GetPosts(filters);
             
             //Se convierte la respuesta en objetos DTO para que el usuario no tenga contacto con nuestra entidad de dominio
             var postsDto = _mapper.Map<IEnumerable<PostDto>>(posts);
