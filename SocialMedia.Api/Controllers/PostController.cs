@@ -7,6 +7,7 @@ using SocialMedia.Core.Interfaces;
 using SocialMedia.Core.QueryFilters;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace SocialMedia.Api.Controllers
@@ -28,6 +29,9 @@ namespace SocialMedia.Api.Controllers
         }
 
         [HttpGet]
+        //Decoradores necesarios para especificar el tipo de respuesta en la documentación
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         //Parámetros que se pasan por query string, en forma individual o en un objeto
         public IActionResult GetPosts([FromQuery]PostQueryFilter filters) 
         {
