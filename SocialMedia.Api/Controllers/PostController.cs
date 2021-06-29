@@ -4,6 +4,8 @@ using SocialMedia.Api.Responses;
 using SocialMedia.Core.DTOs;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
+using SocialMedia.Core.QueryFilters;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -26,7 +28,8 @@ namespace SocialMedia.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetPosts() 
+        //Parámetros que se pasan por query string, en forma individual o en un objeto
+        public IActionResult GetPosts(PostQueryFilter filters) 
         {
             //Bajo Acoplamiento y Alta cohesión: que las clases no dependan entre sí
             //Solución:Inyección de dependencias, trabajar con abstracciones interfaces
