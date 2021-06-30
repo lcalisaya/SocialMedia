@@ -21,6 +21,8 @@ namespace SocialMedia.Core.Services
         public IEnumerable<Post> GetPosts(PostQueryFilter filters)
         {
             var posts = _unitOfWork.PostRepository.GetAll();
+
+            //Se aplican los filtros
             if (filters.UserId != null)
             { 
                 posts = posts.Where(x => x.Id == filters.UserId);
@@ -35,6 +37,9 @@ namespace SocialMedia.Core.Services
             {
                 posts = posts.Where(x => x.Description.ToLower().Contains(filters.Description.ToLower()));
             }
+      
+            //Se realiza la paginación
+            
 
             return posts;
         }
