@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using SocialMedia.Api.Responses;
 using SocialMedia.Core.DTOs;
 using SocialMedia.Core.Entities;
@@ -43,6 +44,18 @@ namespace SocialMedia.Api.Controllers
             var postsDto = _mapper.Map<IEnumerable<PostDto>>(posts);
 
             var response = new ApiResponse<IEnumerable<PostDto>>(postsDto);
+
+            //En el header del response se enviará este objeto
+            var metadata = new { 
+                posts.PageSize,
+                posts.TotalCount,
+                posts.TotalPages,
+                posts.CurrentPage,
+                posts.HasPreviousPage,
+                posts.HasNextPage
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
 
             //Retorna un status 200
             return Ok(response);
