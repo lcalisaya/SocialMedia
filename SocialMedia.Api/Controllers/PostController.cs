@@ -7,6 +7,7 @@ using SocialMedia.Core.DTOs;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Core.QueryFilters;
+using SocialMedia.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -23,14 +24,16 @@ namespace SocialMedia.Api.Controllers
     {
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
+        private readonly IUriService _uriService;
         //Inyectar vía constructor: Se le pasan los objetos que de este dependan
-        public PostController(IPostService postService, IMapper mapper)
+        public PostController(IPostService postService, IMapper mapper, IUriService uriService)
         {
             _postService = postService;
             _mapper = mapper;
+            _uriService = uriService;
         }
 
-        [HttpGet]
+        [HttpGet(Name = nameof(GetPosts))]
         //Decoradores necesarios para especificar el tipo de respuesta en la documentación
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
@@ -52,8 +55,8 @@ namespace SocialMedia.Api.Controllers
                 CurrentPage = posts.CurrentPage,
                 HasPreviousPage = posts.HasPreviousPage,
                 HasNextPage = posts.HasNextPage,
-                NextPageUrl = "",
-                PreviousPageUrl = "" 
+                NextPageUrl = _uriService.GetPostsPaginationUri(filters, Url.RouteUrl(nameof(GetPosts))).ToString(),
+                PreviousPageUrl = _uriService.GetPostsPaginationUri(filters, Url.RouteUrl(nameof(GetPosts))).ToString()
             };
 
             var response = new ApiResponse<IEnumerable<PostDto>>(postsDto) 
