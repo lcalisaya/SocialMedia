@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SocialMedia.Api.Responses;
+using SocialMedia.Core.CustomEntities;
 using SocialMedia.Core.DTOs;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
@@ -43,16 +44,21 @@ namespace SocialMedia.Api.Controllers
             //Se convierte la respuesta en objetos DTO para que el usuario no tenga contacto con nuestra entidad de dominio
             var postsDto = _mapper.Map<IEnumerable<PostDto>>(posts);
 
-            var response = new ApiResponse<IEnumerable<PostDto>>(postsDto);
-
             //En el header del response se enviará este objeto
-            var metadata = new { 
-                posts.PageSize,
-                posts.TotalCount,
-                posts.TotalPages,
-                posts.CurrentPage,
-                posts.HasPreviousPage,
-                posts.HasNextPage
+            var metadata = new MetaData{ 
+                PageSize = posts.PageSize,
+                TotalCount = posts.TotalCount,
+                TotalPages = posts.TotalPages,
+                CurrentPage = posts.CurrentPage,
+                HasPreviousPage = posts.HasPreviousPage,
+                HasNextPage = posts.HasNextPage,
+                NextPageUrl = "",
+                PreviousPageUrl = "" 
+            };
+
+            var response = new ApiResponse<IEnumerable<PostDto>>(postsDto) 
+            {
+                Meta = metadata
             };
 
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
