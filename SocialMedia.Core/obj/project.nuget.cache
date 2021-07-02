@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "fV4E5nfxA4LBsMOTr3XZInO/6aFDAJ4w9LCPf+WE2F4RqVo5SRc2U5yi0CkYTF4ukheVze7xV+oBf6sUb8sTQw==",
+  "dgSpecHash": "Ab6EhmH5l1hHwC+dstEQTSsfFvb5EBQBAUtZ/FhSMujLbl3X6chmayienv7Pv5iqDQraOoS147aqEUYuagy3qw==",
   "success": true,
   "projectFilePath": "C:\\Users\\timea\\source\\repos\\SocialMedia\\SocialMedia.Core\\SocialMedia.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\timea\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\timea\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
+    "C:\\Users\\timea\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

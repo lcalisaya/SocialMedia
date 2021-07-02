@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SocialMedia.Core.CustomEntities;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Core.Services;
 using SocialMedia.Infrastructure.Data;
@@ -41,7 +42,10 @@ namespace SocialMedia.Api
                 options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             }).ConfigureApiBehaviorOptions(options => { 
                 //options.SuppressModelStateInvalidFilter = true;
-            });       
+            });     
+  
+            //Para configurar la clase que indicará las opciones del paginado
+            services.Configure<PaginationOptions>(Configuration.GetSection("Pagination"));
 
             //Para indicar que el contexto se basa en la connection string SocialMedia
             services.AddDbContext<SocialMediaContext>(options =>
