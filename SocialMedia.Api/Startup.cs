@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using SocialMedia.Core.CustomEntities;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Core.Services;
@@ -65,6 +66,10 @@ namespace SocialMedia.Api
                 return new UriService(absoluteUri);
             });
 
+            services.AddSwaggerGen(doc => { 
+                doc.SwaggerDoc("v1", new OpenApiInfo { Title = "Social Media API", Version = "v1"});
+            });
+
             //De tipo Scope, cambia el ciclo de vida
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             
@@ -88,6 +93,11 @@ namespace SocialMedia.Api
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(options => { 
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Social Media API V1");
+            });
 
             app.UseRouting();
 
