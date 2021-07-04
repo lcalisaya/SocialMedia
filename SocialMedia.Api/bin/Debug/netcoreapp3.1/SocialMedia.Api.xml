@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SocialMedia.Api</name>
+    </assembly>
+    <members>
+        <member name="M:SocialMedia.Api.Controllers.PostController.GetPosts(SocialMedia.Core.QueryFilters.PostQueryFilter)">
+            <summary>
+            Devuelve todos los posts
+            </summary>
+            <param name="filters">Se envía los filtros que se pueden aplicar a la solicitud</param>
+            <returns></returns>
+        </member>
+        <member name="M:SocialMedia.Api.Controllers.PostController.GetPost(System.Int32)">
+            <summary>
+            Devuelve un post
+            </summary>
+            <param name="postId">Es el ID de post solicitado</param>
+            <returns></returns>
+        </member>
+        <member name="M:SocialMedia.Api.Controllers.PostController.AddPost(SocialMedia.Core.DTOs.PostDto)">
+            <summary>
+            Se guarda un post desde 0
+            </summary>
+            <param name="jsonPost">Son los datos del post enviados</param>
+            <returns></returns>
+        </member>
+        <member name="M:SocialMedia.Api.Controllers.PostController.UpdatePost(System.Int32,SocialMedia.Core.DTOs.PostDto)">
+            <summary>
+            Se edita y guarda un post existente
+            </summary>
+            <param name="idPost">ID del post indicado para modificar</param>
+            <param name="jsonPost">Datos del post que se quieren cambiar</param>
+            <returns></returns>
+        </member>
+        <member name="M:SocialMedia.Api.Controllers.PostController.DeletePost(System.Int32)">
+            <summary>
+            Se elimina un post
+            </summary>
+            <param name="idPost">ID del post que se quiere eliminar</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

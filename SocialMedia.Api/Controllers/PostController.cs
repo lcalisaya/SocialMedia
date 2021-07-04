@@ -8,13 +8,13 @@ using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Core.QueryFilters;
 using SocialMedia.Infrastructure.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
 namespace SocialMedia.Api.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController] // Este decorador activa las validaciones a los modelos
 
@@ -33,9 +33,14 @@ namespace SocialMedia.Api.Controllers
             _uriService = uriService;
         }
 
+        /// <summary>
+        /// Devuelve todos los posts
+        /// </summary>
+        /// <param name="filters">Se envía los filtros que se pueden aplicar a la solicitud</param>
+        /// <returns></returns>
         [HttpGet(Name = nameof(GetPosts))]
         //Decoradores necesarios para especificar el tipo de respuesta en la documentación
-        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<PostDto>>))]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         //Parámetros que se pasan por query string, en forma individual o en un objeto
         public IActionResult GetPosts([FromQuery]PostQueryFilter filters) 
@@ -70,6 +75,11 @@ namespace SocialMedia.Api.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Devuelve un post
+        /// </summary>
+        /// <param name="postId">Es el ID de post solicitado</param>
+        /// <returns></returns>
         [HttpGet("{postId}")]
         public async Task<IActionResult> GetPost(int postId)
         {
@@ -79,6 +89,11 @@ namespace SocialMedia.Api.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Se guarda un post desde 0
+        /// </summary>
+        /// <param name="jsonPost">Son los datos del post enviados</param>
+        /// <returns></returns>
         // En este método se espera un objeto entidad que es el que se comunica con la BBDD.
         // Esto puede generar "Overposting", es decir que el usuario puede enviar más datos/objetos de los que son necesarios.
         // Ejemplo, se podría mandar a guardar un post + un comentario + un usuario 
@@ -93,6 +108,12 @@ namespace SocialMedia.Api.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Se edita y guarda un post existente
+        /// </summary>
+        /// <param name="idPost">ID del post indicado para modificar</param>
+        /// <param name="jsonPost">Datos del post que se quieren cambiar</param>
+        /// <returns></returns>
         [HttpPut]
         public async Task<IActionResult> UpdatePost(int idPost, PostDto jsonPost)
         {
@@ -103,6 +124,11 @@ namespace SocialMedia.Api.Controllers
             return Ok(response);
         }
 
+        /// <summary>
+        /// Se elimina un post
+        /// </summary>
+        /// <param name="idPost">ID del post que se quiere eliminar</param>
+        /// <returns></returns>
         [HttpDelete]
         public async Task<IActionResult> DeletePost(int idPost)
         {
@@ -110,6 +136,5 @@ namespace SocialMedia.Api.Controllers
             var response = new ApiResponse<bool>(result);
             return Ok(response);
         }
-
     }
 }

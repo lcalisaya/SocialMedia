@@ -16,6 +16,8 @@ using SocialMedia.Infrastructure.Interfaces;
 using SocialMedia.Infrastructure.Repositories;
 using SocialMedia.Infrastructure.Services;
 using System;
+using System.IO;
+using System.Reflection;
 
 namespace SocialMedia.Api
 {
@@ -68,6 +70,11 @@ namespace SocialMedia.Api
 
             services.AddSwaggerGen(doc => { 
                 doc.SwaggerDoc("v1", new OpenApiInfo { Title = "Social Media API", Version = "v1"});
+
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+
+                doc.IncludeXmlComments(xmlPath);
             });
 
             //De tipo Scope, cambia el ciclo de vida

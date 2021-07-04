@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SocialMedia.Core.Services
 {
-  //Son clases en las que se van a reflejar las reglas de negocio/validaciones
+    //Son clases en las que se van a reflejar las reglas de negocio/validaciones
     public class PostService : IPostService
     {
         private readonly IUnitOfWork _unitOfWork;
