@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1B0ja+Icq/N4fz4gOHnnp1AATwMW+DNJauQo5hc5KBJwUEYUE4CUxVFPVxqS3YAryqnK+qGB5NPDH55KFXpy7A==",
+  "dgSpecHash": "9zVhdANMfVFtOxllrzcmDTNLCnvY22slXcYWlhXS//n8AqFGT4aWj82suDrhq0XQhXDA1qA57wtwDExiz8+c7w==",
   "success": true,
   "projectFilePath": "C:\\Users\\timea\\source\\repos\\SocialMedia\\SocialMedia.Api\\SocialMedia.Api.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\timea\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.2.3\\fluentvalidation.dependencyinjectionextensions.10.2.3.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\timea\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.16\\microsoft.aspnetcore.authentication.jwtbearer.3.1.16.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\microsoft.aspnetcore.authorization.policy\\2.2.0\\microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512",
     "C:\\Users\\timea\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",
